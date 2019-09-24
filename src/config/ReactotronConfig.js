@@ -1,14 +1,14 @@
 import Reactotron from 'reactotron-react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
-const ip_casa = '192.168.15.7';
-const ip_trabalho = '10.68.101.90';
+const ipCasa = 'localhost';
+// const ipTrabalho = '10.68.101.90';
 
 if (__DEV__) {
-  const tron = Reactotron.configure({ host: ip_casa })
+  const tron = Reactotron.configure({ host: ipCasa })
     .useReactNative()
+    .setAsyncStorageHandler(AsyncStorage)
     .connect();
 
   console.tron = tron;
-
-  tron.clear();
 }
